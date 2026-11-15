@@ -1,0 +1,106 @@
+.page {
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 0 clamp(1.25rem, 5vw, 5rem);
+  background:
+    radial-gradient(circle at 84% 14%, rgb(93 205 224 / 12%), transparent 28rem),
+    linear-gradient(180deg, #081714 0%, #071310 100%);
+}
+
+.nav {
+  width: min(1120px, 100%);
+  min-height: 5.5rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--pila-border-soft);
+}
+
+.brand {
+  color: var(--pila-primary);
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: -0.075em;
+}
+
+.navLink {
+  color: var(--pila-text);
+  font-size: 0.9rem;
+  font-weight: 750;
+}
+
+.navLink:hover {
+  color: var(--pila-primary);
+}
+
+.hero {
+  width: min(940px, 100%);
+  margin: 0 auto;
+  padding: clamp(5rem, 12vw, 9rem) 0 clamp(3.75rem, 9vw, 7rem);
+}
+
+.kicker {
+  color: var(--pila-primary);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.hero h1 {
+  max-width: 850px;
+  margin-top: 0.7rem;
+  color: var(--pila-text-strong);
+  font-size: clamp(3rem, 8vw, 6.6rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.065em;
+}
+
+.intro {
+  max-width: 650px;
+  margin-top: 1.8rem;
+  color: var(--pila-muted);
+  font-size: clamp(1.05rem, 2vw, 1.28rem);
+  line-height: 1.65;
+}
+
+.actions {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.primaryAction,
+.secondaryAction {
+  min-height: 3.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.8rem 1.15rem;
+  border-radius: 0.65rem;
+  font-weight: 850;
+}
+
+.primaryAction {
+  color: #071512;
+  background: var(--pila-primary);
+  box-shadow: 0 0.75rem 2.5rem rgb(93 205 224 / 14%);
+}
+
+.primaryAction:hover {
+  background: var(--pila-primary-strong);
+  transform: translateY(-1px);
+}
+
+.secondaryAction {
+  border: 1px solid var(--pila-border);
+  color: var(--pila-text);
+  background: rgb(14 34 30 / 72%);
+}
+
+.secondaryAction:hover {
+  border-color: var(--pila-primary);
+}
+
