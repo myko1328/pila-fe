@@ -1,0 +1,6 @@
+{
+  "name": "@pila/contracts",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Framework-neutral API contracts shared by Pila applications."
+}
