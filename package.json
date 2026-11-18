@@ -7,6 +7,7 @@
     "dev": "pnpm --parallel --filter pila-fe --filter @pila/api dev",
     "dev:api": "pnpm --filter @pila/api dev",
     "dev:web": "pnpm --filter pila-fe dev",
+    "deploy:web": "pnpm --filter pila-fe deploy",
     "lint": "pnpm -r --if-present lint",
     "start:api": "pnpm --filter @pila/api start",
     "start:web": "pnpm --filter pila-fe start",

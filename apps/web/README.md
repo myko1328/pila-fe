@@ -49,3 +49,23 @@ Use `done`, `in-progress`, or `planned`. Viewers can see the checklist but canno
 pnpm lint
 pnpm build
 ```
+
+## Cloudflare Workers deployment
+
+The OpenNext adapter and Wrangler configuration are committed so Cloudflare does not need to mutate the workspace during automatic framework detection.
+
+Use these Workers Builds settings:
+
+```text
+Root directory: apps/web
+Build command: None
+Deploy command: pnpm deploy
+```
+
+Do not use `npx wrangler deploy` as the deploy command for this monorepo. The `deploy` package script builds the OpenNext Worker first and then deploys the generated output.
+
+To create the Worker bundle without deploying:
+
+```bash
+pnpm cf:build
+```
