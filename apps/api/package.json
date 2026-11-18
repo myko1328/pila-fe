@@ -3,9 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "imports": {
+    "#api/*": {
+      "development": "./src/*",
+      "default": "./dist/*"
+    }
+  },
   "scripts": {
     "build": "tsc --project tsconfig.json",
-    "dev": "tsx watch src/server.ts",
+    "dev": "node --conditions=development --import tsx --watch src/server.ts",
     "start": "node dist/server.js",
     "test": "vitest run",
     "typecheck": "tsc --project tsconfig.json --noEmit"

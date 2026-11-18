@@ -1,7 +1,7 @@
 import request from "supertest";
 import { describe, expect, it } from "vitest";
 
-import { createApp, type HealthResponse } from "./app.js";
+import { createApp, type HealthResponse } from "#api/app.js";
 
 describe("GET /health", () => {
   it("reports that the API is healthy without requiring a database", async () => {

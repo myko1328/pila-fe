@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 
-import { resolvePort, startApiServer } from "./server.js";
+import { resolvePort, startApiServer } from "#api/server.js";
 
 describe("API server lifecycle", () => {
   it("starts independently and shuts down cleanly", async () => {

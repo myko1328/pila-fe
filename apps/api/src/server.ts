@@ -1,7 +1,7 @@
 import { type Server } from "node:http";
 import { pathToFileURL } from "node:url";
 
-import { createApp } from "./app.js";
+import { createApp } from "#api/app.js";
 
 const DEFAULT_PORT = 4000;
 const DEFAULT_HOST = "0.0.0.0";
