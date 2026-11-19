@@ -17,8 +17,8 @@ export default function Home() {
         <p className={styles.kicker}>A smarter way to wait</p>
         <h1>Find a service. Check the line. Take a number.</h1>
         <p className={styles.intro}>
-          Pila is being built for walk-in businesses and the customers who
-          would rather know the wait before leaving home.
+          Pila is being built for walk-in businesses and the customers who would rather know the
+          wait before leaving home.
         </p>
         <div className={styles.actions}>
           <Link className={styles.primaryAction} href="/roadmap">

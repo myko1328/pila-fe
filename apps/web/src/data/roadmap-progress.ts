@@ -6,6 +6,7 @@ export const featureProgress: Record<string, FeatureStatus> = {
   "FND-001": "done",
   "FND-002": "done",
   "FND-003": "done",
+  "FND-004": "done",
 };
 
 export const statusLabels: Record<FeatureStatus, string> = {

@@ -38,7 +38,11 @@ pnpm dev:api
 Validate the complete workspace:
 
 ```bash
+pnpm format:check
+pnpm lint
 pnpm typecheck
 pnpm test
 pnpm build
 ```
+
+Use `pnpm format` and `pnpm lint:fix` to apply safe automatic formatting and lint fixes. See `CONTRIBUTING.md` for repository conventions and required checks.

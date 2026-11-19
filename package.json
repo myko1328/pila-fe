@@ -8,7 +8,10 @@
     "dev:api": "pnpm --filter @pila/api dev",
     "dev:web": "pnpm --filter pila-fe dev",
     "deploy:web": "pnpm --filter pila-fe deploy",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "lint": "pnpm -r --if-present lint",
+    "lint:fix": "pnpm -r --if-present lint:fix",
     "start:api": "pnpm --filter @pila/api start",
     "start:web": "pnpm --filter pila-fe start",
     "test": "pnpm -r --if-present test",
@@ -17,5 +20,13 @@
   "engines": {
     "node": ">=22.0.0"
   },
-  "packageManager": "pnpm@11.25.0"
+  "packageManager": "pnpm@11.25.0",
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "eslint": "9.39.5",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^16.4.0",
+    "prettier": "^3.10.1",
+    "typescript-eslint": "^8.72.2"
+  }
 }

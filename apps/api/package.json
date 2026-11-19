@@ -10,8 +10,10 @@
     }
   },
   "scripts": {
-    "build": "tsc --project tsconfig.json",
+    "build": "tsc --project tsconfig.build.json",
     "dev": "node --conditions=development --import tsx --watch src/server.ts",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
     "start": "node dist/server.js",
     "test": "vitest run",
     "typecheck": "tsc --project tsconfig.json --noEmit"

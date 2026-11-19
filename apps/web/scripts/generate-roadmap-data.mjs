@@ -16,9 +16,7 @@ for (const rawLine of source.split(/\r?\n/)) {
   const line = rawLine.trim();
   const phaseMatch = line.match(/^# Phase (\d+) - (.+)$/);
   const sprintMatch = line.match(/^## Sprint (\d+) - (.+)$/);
-  const featureMatch = line.match(
-    /^\| ([A-Z]+-\d+) \| (.+) \| ([3-5]) \| (.+) \|$/,
-  );
+  const featureMatch = line.match(/^\| ([A-Z]+-\d+) \| (.+) \| ([3-5]) \| (.+) \|$/);
   const objectiveMatch = line.match(/^\*\*Objective:\*\* (.+)$/);
   const totalMatch = line.match(/^\*\*Sprint total: (\d+) points\*\*$/);
   const deliverableMatch = line.match(/^\*\*Sprint deliverable:\*\* (.+)$/);
@@ -75,10 +73,7 @@ for (const rawLine of source.split(/\r?\n/)) {
 const featureCount = phases.reduce(
   (phaseTotal, phase) =>
     phaseTotal +
-    phase.sprints.reduce(
-      (sprintTotal, sprint) => sprintTotal + sprint.features.length,
-      0,
-    ),
+    phase.sprints.reduce((sprintTotal, sprint) => sprintTotal + sprint.features.length, 0),
   0,
 );
 

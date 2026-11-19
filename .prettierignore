@@ -1,0 +1,21 @@
+# Dependencies and generated build output
+node_modules/
+.next/
+.open-next/
+.wrangler/
+dist/
+build/
+out/
+coverage/
+test-results/
+playwright-report/
+blob-report/
+
+# Temporary and binary artifacts
+tmp/
+output/
+
+# Generated or canonical source files
+apps/web/src/data/roadmap.generated.ts
+docs/PILA_SPRINT_BLUEPRINT.md
+pnpm-lock.yaml

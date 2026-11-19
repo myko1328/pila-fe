@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { roadmap } from "@/data/roadmap.generated";
 import {
+  type FeatureStatus,
   currentSprintNumber,
   getFeatureStatus,
   statusLabels,
-  type FeatureStatus,
 } from "@/data/roadmap-progress";
 import styles from "./roadmap.module.css";
 
@@ -24,22 +24,15 @@ function StatusMark({ status }: { status: FeatureStatus }) {
 }
 
 export default function RoadmapPage() {
-  const features = roadmap.flatMap((phase) =>
-    phase.sprints.flatMap((sprint) => sprint.features),
-  );
-  const done = features.filter(
-    (feature) => getFeatureStatus(feature.id) === "done",
-  ).length;
+  const features = roadmap.flatMap((phase) => phase.sprints.flatMap((sprint) => sprint.features));
+  const done = features.filter((feature) => getFeatureStatus(feature.id) === "done").length;
   const inProgress = features.filter(
     (feature) => getFeatureStatus(feature.id) === "in-progress",
   ).length;
   const totalPoints = roadmap.reduce(
     (phaseTotal, phase) =>
       phaseTotal +
-      phase.sprints.reduce(
-        (sprintTotal, sprint) => sprintTotal + sprint.totalPoints,
-        0,
-      ),
+      phase.sprints.reduce((sprintTotal, sprint) => sprintTotal + sprint.totalPoints, 0),
     0,
   );
   const completion = Math.round((done / features.length) * 100);
@@ -60,9 +53,8 @@ export default function RoadmapPage() {
           <p className={styles.eyebrow}>Building Pila in public</p>
           <h1>Product roadmap</h1>
           <p className={styles.intro}>
-            This is the live implementation checklist. It shows what has been
-            completed, what is moving now, and what the team plans to build
-            next.
+            This is the live implementation checklist. It shows what has been completed, what is
+            moving now, and what the team plans to build next.
           </p>
         </div>
         <aside className={styles.legend} aria-label="Feature status legend">
@@ -82,8 +74,8 @@ export default function RoadmapPage() {
             Sprint 1 of {roadmap.flatMap((phase) => phase.sprints).length}
           </h2>
           <p>
-            The foundation is in progress. The proof-of-concept UI reproduction
-            begins after the boilerplate is stable.
+            The foundation is in progress. The proof-of-concept UI reproduction begins after the
+            boilerplate is stable.
           </p>
         </div>
         <div className={styles.progressBlock}>
@@ -120,38 +112,25 @@ export default function RoadmapPage() {
 
       <section className={styles.phases} aria-label="Roadmap phases">
         {roadmap.map((phase) => {
-          const phaseFeatures = phase.sprints.flatMap(
-            (sprint) => sprint.features,
-          );
+          const phaseFeatures = phase.sprints.flatMap((sprint) => sprint.features);
           const phaseDone = phaseFeatures.filter(
             (feature) => getFeatureStatus(feature.id) === "done",
           ).length;
-          const phaseActive = phase.sprints.some(
-            (sprint) => sprint.number === currentSprintNumber,
-          );
+          const phaseActive = phase.sprints.some((sprint) => sprint.number === currentSprintNumber);
 
           return (
-            <details
-              className={styles.phase}
-              key={phase.number}
-              open={phase.number === 1}
-            >
+            <details className={styles.phase} key={phase.number} open={phase.number === 1}>
               <summary>
-                <span className={styles.phaseNumber}>
-                  {String(phase.number).padStart(2, "0")}
-                </span>
+                <span className={styles.phaseNumber}>{String(phase.number).padStart(2, "0")}</span>
                 <span className={styles.phaseTitle}>
                   <strong>{phase.title}</strong>
                   <small>
                     {phase.sprints.length} sprint
-                    {phase.sprints.length === 1 ? "" : "s"} · {phaseDone}/
-                    {phaseFeatures.length} done
+                    {phase.sprints.length === 1 ? "" : "s"} · {phaseDone}/{phaseFeatures.length}{" "}
+                    done
                   </small>
                 </span>
-                <span
-                  className={styles.phaseState}
-                  data-active={phaseActive || undefined}
-                >
+                <span className={styles.phaseState} data-active={phaseActive || undefined}>
                   {phaseActive ? "Current phase" : "Planned"}
                 </span>
                 <span className={styles.chevron} aria-hidden="true">
@@ -172,11 +151,7 @@ export default function RoadmapPage() {
                         <div>
                           <p>
                             Sprint {sprint.number}
-                            {sprintActive && (
-                              <span className={styles.currentBadge}>
-                                Current
-                              </span>
-                            )}
+                            {sprintActive && <span className={styles.currentBadge}>Current</span>}
                           </p>
                           <h2>{sprint.title}</h2>
                           <span>{sprint.objective}</span>
@@ -200,9 +175,7 @@ export default function RoadmapPage() {
                                 </div>
                                 <p>{feature.acceptanceCriteria}</p>
                               </div>
-                              <span className={styles.points}>
-                                {feature.points} pts
-                              </span>
+                              <span className={styles.points}>{feature.points} pts</span>
                             </li>
                           );
                         })}
@@ -226,9 +199,7 @@ export default function RoadmapPage() {
       </section>
 
       <footer className={styles.footer}>
-        <p>
-          The roadmap is maintained from the source-controlled sprint blueprint.
-        </p>
+        <p>The roadmap is maintained from the source-controlled sprint blueprint.</p>
         <Link href="/">Return to Pila</Link>
       </footer>
     </main>

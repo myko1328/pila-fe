@@ -1,4 +1,4 @@
-import { type Server } from "node:http";
+import type { Server } from "node:http";
 import { pathToFileURL } from "node:url";
 
 import { createApp } from "#api/app.js";
@@ -47,9 +47,7 @@ function closeHttpServer(server: Server): Promise<void> {
   });
 }
 
-export async function startApiServer(
-  options: ApiServerOptions = {},
-): Promise<RunningApiServer> {
+export async function startApiServer(options: ApiServerOptions = {}): Promise<RunningApiServer> {
   const host = options.host ?? DEFAULT_HOST;
   const logger = options.logger ?? console;
   const port = options.port ?? resolvePort();
@@ -105,8 +103,7 @@ export async function startApiServer(
 }
 
 const isEntryPoint =
-  process.argv[1] !== undefined &&
-  import.meta.url === pathToFileURL(process.argv[1]).href;
+  process.argv[1] !== undefined && import.meta.url === pathToFileURL(process.argv[1]).href;
 
 if (isEntryPoint) {
   void startApiServer().catch((error: unknown) => {
